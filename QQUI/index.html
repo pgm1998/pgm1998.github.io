@@ -21,6 +21,14 @@
 				animation: none !important;
 				-webkit-animation: none !important;
 			}
+			#info-panel{
+				background-color: white
+			}
+			#self-head{
+				width: 3rem;
+				height: 3rem;
+				border-radius:50%;
+			}
 		</style>
 	</head>
 	<body>
@@ -29,7 +37,7 @@
 			<div class="page page-current" id="msg-page">
 				<!--导航栏-->
 				<header class="bar bar-nav">
-					<a href="#" class="pull-left icon icon-me"></a>
+					<a href="#" class="pull-left icon icon-me open-panel" data-panel="#info-panel"></a>
 					<button class="button pull-right"><b>+</b></button>
 					<div class="buttons-row">
 						<a href="#" class="tab-link button active">消息</a>
@@ -64,7 +72,7 @@
 					</a>
 				</div>
 				<!--内容区-->
-				<div class="content">
+				<div class="content close-panel">
 					<div class="content-block">
 						这里是好友列表
 					</div>
@@ -154,9 +162,11 @@
 			</div>
 			
 			<!--侧栏-->
-			<div class="panel panel-left" id="info-panel">
+			<div class="panel panel-left panel-reveal" id="info-panel">
 				<div class="content-block">
-					<p>这是侧边栏</p>
+					<div id="self-info">
+						<img id="self-head" src="img/3.jpg"/>
+					</div>
 				</div>
 			</div>
 			
