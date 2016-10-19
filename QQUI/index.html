@@ -11,24 +11,28 @@
 				width: 40%;
 				margin: 0 auto;
 			}
-			.bar .searchbar{
-				background: #efeff4;
-			}
-			#search{
-				background: rgba(0,0,0,.1);
-			}
 			#msg-page,#ab-page,#dt-page{
 				animation: none !important;
 				-webkit-animation: none !important;
-			}
-			#info-panel{
-				background-color: white
 			}
 			#self-head{
 				width: 3rem;
 				height: 3rem;
 				border-radius:50%;
 				float: left;
+			}
+			#bottom-menu{
+				font-size: 0.6rem;
+			}
+			#aside-menu{
+				height: 12rem;
+				overflow-y: scroll;
+			}
+			#friend-list{
+				margin: 0;
+			}
+			#friend-list .item-media img{
+				border-radius: 50%;
 			}
 		</style>
 	</head>
@@ -74,12 +78,83 @@
 				</div>
 				<!--内容区-->
 				<div class="content close-panel">
-					<div class="content-block">
-						这里是好友列表
-					</div>
+				  <div class="list-block media-list" id="friend-list">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-title">唐志杰</div>
+				            </div>
+				            <div class="item-subtitle">哥哥</div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
+				</div>
+				<div class="list-block media-list" id="friend-list">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-title">宋晨</div>
+				            </div>
+				            <div class="item-subtitle">哥哥</div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
+				</div>
+				<div class="list-block media-list" id="friend-list">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-title">将珏</div>
+				            </div>
+				            <div class="item-subtitle">哥哥</div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
+				</div>
+				<div class="list-block media-list" id="friend-list">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-title">陌生人</div>
+				            </div>
+				            <div class="item-subtitle">您好</div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
+				</div>
+				<div class="list-block media-list" id="friend-list">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-title">陌生人</div>
+				            </div>
+				            <div class="item-subtitle">您好</div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
 				</div>
 			</div>
-			
+			</div>
 			<!--联系人页面-->
 			<div class="page" id="ab-page">
 				<!--导航栏-->
@@ -115,12 +190,71 @@
 				</div>
 				<!--内容区-->
 				<div class="content">
-					<div class="content-block">
-						这里是联系人内容
-					</div>
-				</div>
+				  <div class="list-block contacts-block">
+				    <div class="list-group">
+				      <ul>
+				        <li class="list-group-title" onclick="openclose(event)">A</li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题1</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题2</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题3</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题4</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题5</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题6</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题7</div>
+				            </div>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="item-content">
+				            <div class="item-inner">
+				              <div class="item-title">标题8</div>
+				            </div>
+				          </div>
+				        </li>
+				      </ul>
+				    </div>
 			</div>
-			
+			</div>
+			</div>
 			<!--动态页面-->
 			<div class="page" id="dt-page">
 				<!--导航栏-->
@@ -163,17 +297,17 @@
 			</div>
 			
 			<!--侧栏-->
-			<div class="panel panel-left panel-reveal" id="info-panel">
+			<div class="theme-white panel panel-left panel-reveal" id="info-panel">
 				<div class="content-block">
 					<div id="self-info">
 						<img id="self-head" src="img/3.jpg"/>
-						<span id="self-name">我的昵称</span>
+						<span id="self-name">proGramMer</span>
 						<br />
 						<div id="self-level"></div>
 						<div style="clear: both;"></div>
-						<p>今天捡了100块钱</p>
+						<p>个性签名</p>
 					</div>
-					<div class="list-block">
+					<div class="list-block" id="aside-menu">
 						<ul>
 							<li class="item-content">
 								<div class="item-media">
@@ -233,6 +367,20 @@
 							</li>
 						</ul>
 					</div>
+					
+					<div class="row" id="bottom-menu">
+				      <div class="col-33">
+				      	<a class="button-link"><i class="icon icon-settings"></i>设置</a>
+				      </div>
+				      <div class="col-33">
+				      	<a id="night-shift-btn" class="button-link"><i class="icon icon-star"></i>夜间</a>
+				      </div>
+				      <div class="col-33">
+				      	<a class="button-link">郑州<sup>18℃</sup></a>
+				      </div>
+				    </div>
+					
+					
 				</div>
 			</div>
 		
@@ -258,7 +406,7 @@
 			document.title = "动态";
 		})
 		
-		var myLevel = 53;
+		var myLevel = 249;
 		
 		function refreshLevel(level){
 			var levelArray = [];
@@ -271,6 +419,9 @@
 			for (var i = 0;i<levelArray.length;i++){
 				var picName;
 				switch (levelArray.length-i){
+					case 4:
+					picName = "king.png";
+					break;
 				case 3:
 					picName = "sun.png";
 					break;
@@ -283,7 +434,6 @@
 					default:
 						break;
 				}
-				console.log(picName)
 				for (var j = 0;j < levelArray[i];j++){
 					$("<img />")
 					.attr("src","img/"+picName)
@@ -294,6 +444,25 @@
 			}
 		}
 		refreshLevel(myLevel);
+		
+		$("#night-shift-btn").click(function(){
+			$(document.body).toggleClass("theme-dark");
+			$("#info-panel").toggleClass("theme-white")
+		})
+		
+		function openclose(e){
+			if(e.target.isOpen){
+				$(e.target).nextAll("li")
+				.css("display","none");
+				e.target.isOpen = false;
+			}else{
+				$(e.target).nextAll("li")
+				.css("display","block");
+				e.target.isOpen = true;
+			}
+			
+		}
+		
 		
 		//初始化SUI
 		$.init();
