@@ -28,6 +28,7 @@
 				width: 3rem;
 				height: 3rem;
 				border-radius:50%;
+				float: left;
 			}
 		</style>
 	</head>
@@ -166,11 +167,76 @@
 				<div class="content-block">
 					<div id="self-info">
 						<img id="self-head" src="img/3.jpg"/>
+						<span id="self-name">我的昵称</span>
+						<br />
+						<div id="self-level"></div>
+						<div style="clear: both;"></div>
+						<p>今天捡了100块钱</p>
+					</div>
+					<div class="list-block">
+						<ul>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-gift"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">了解会员特权</div>
+								</div>
+							</li>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-cart"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">QQ钱包</div>
+								</div>
+							</li>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-emoji"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">个性装扮</div>
+								</div>
+							</li>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-star"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">我的收藏</div>
+								</div>
+							</li>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-picture"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">我的相册</div>
+								</div>
+							</li>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-edit"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">我的文件</div>
+								</div>
+							</li>
+							<li class="item-content">
+								<div class="item-media">
+									<i class="icon icon-card"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">我的名片夹</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			
-			
+		
+		
 		</div>
 	</body>
 	<script src="SUI/zepto.min.js"></script>
@@ -192,9 +258,42 @@
 			document.title = "动态";
 		})
 		
+		var myLevel = 50;
 		
-		
-		
+		function refreshLevel(level){
+			var levelArray = [];
+			while (level/4>=1){
+				var remainder = level%4;
+				levelArray.unshift(remainder);
+				level = Math.floor(level/4);
+			}
+			levelArray.unshift(level);
+			for (var i = 0;i<levelArray.length;i++){
+				var picName;
+				switch (levelArray.length-i){
+				case 3:
+					picName = "sun.png";
+					break;
+				case 2:
+					picName = "moon.png";
+					break;
+				case 1:
+					picName = "star.png";
+						break;
+					default:
+						break;
+				}
+				console.log(picName)
+				for (var j = 0;j < levelArray[i];j++){
+					$("<img />")
+					.attr("src","img/"+picName)
+					.css("width","0.8rem")
+					.css("height","0.8rem")
+					.appendTo($("#self-level"))
+				}
+			}
+		}
+		refreshLevel(50);
 		
 		//初始化SUI
 		$.init();
