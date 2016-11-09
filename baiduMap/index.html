@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				margin: 0;
+			}
+			#mapView{
+				height: 60%;
+				width: 60%;
+				float: left;
+			}
+			#right{
+				padding-top: 20px;
+				float: left;
+				height: 60%;
+				overflow: auto;
+				box-sizing: border-box;
+			}
+			h1{
+				margin: 0;
+				text-align: center;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mapView">
+			
+		</div>
+		<div id="right">
+			<h1>公交车查询</h1>
+			<input type="text" id="line" />
+			<br />
+			<button onclick="btnClick()">查询线路</button>
+			<div id="r-result"></div>
+		</div>
+	</body>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=40qbnbigRsUk8QfofQiGZojPnrCjojlS" type="text/javascript"></script>
+	
+	<script>
+		//初始化地图
+		var map = new BMap.Map("mapView");
+		var mapCenter = new BMap.Point(113.73503015311296,34.723194339210465);
+		map.centerAndZoom(mapCenter,15);
+		
+		//添加控件
+		map.addControl(new BMap.NavigationControl()); 
+		//map.addControl(new BMap.OverviewMapControl());
+		map.addControl(new BMap.ScaleControl());
+		map.addControl(new BMap.MapTypeControl());
+		
+		//坐标转换对象
+		var convertor = new BMap.Convertor();
+		var pa = [mapCenter];
+		//坐标转换是一个异步任务,坐标参数必须是一个数组,回调函数中的data.points
+		//就是转换之后的坐标数组
+		convertor.translate(pa,1,5,function(data){
+			//添加坐标点覆盖物
+			var myIcon = new BMap.Icon("datouzhen.png",new BMap.Size(40,40),{
+				anchor: new BMap.Size(20, 40), 
+				imageSize:new BMap.Size(40,40)
+			});
+			var marker = new BMap.Marker(data.points[0],{icon:myIcon});
+			marker.enableDragging();
+			marker.addEventListener("dragend", function(e){
+				//得到的坐标是百度体系经纬度
+			 	console.log("当前经度：" + e.point.lng + ",纬度 " + e.point.lat);    
+			})
+			map.addOverlay(marker);   
+			
+			var blockArr = [
+				new BMap.Point(113.746285,34.729591),
+				new BMap.Point(113.749852,34.729583),
+				new BMap.Point(113.749852,34.727217),
+				new BMap.Point(113.746285,34.72715)
+			];
+			
+			var polyLine = new BMap.Polygon(blockArr,{
+				strokeColor:"red",
+				strokeWeight:6, 
+				strokeOpacity:0.5,
+				fillColor:"red",
+				fillOpacity:0.5
+			})
+			map.addOverlay(polyLine);
+		})
+		map.enableScrollWheelZoom(true);
+		
+		
+		var busline = new BMap.BusLineSearch(map,{
+		renderOptions:{map:map,panel:"r-result"},
+			onGetBusListComplete: function(result){
+			   if(result) {
+				 var fstLine = result.getBusListItem(0);//获取第一个公交列表显示到map上
+				 busline.getBusLine(fstLine);
+			   }
+			}
+		});
+		
+		function btnClick(){
+			var line = document.getElementById("line").value;
+			busline.getBusList(line);
+		}
+		
+	</script>
+</html>
