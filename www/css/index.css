@@ -77,6 +77,10 @@
 	margin: 0 10px;
 	background-color: #F1F1F1;
 }
+.relative{
+	position: absolute;
+	height: 100%;
+}
 #row-margin{
 	margin-top: 10px;
 }
@@ -120,6 +124,7 @@
 }
 #hot-sale-size{
 	height: 280px;
+	position: relative;
 }
 #type{
 	height: 330px;
@@ -147,19 +152,4 @@
 	text-align: center;
 	color: #c2c2c2;
 	font-size: 20px;
-}
-/*侧栏*/
-aside{
-	position: absolute;
-	bottom: 50px;
-	right: 10px;
-	width: 100px;
-	height: 45px;
-	z-index: 1000;
-}
-aside>a{
-	text-decoration: none;
-	font-size: 18px;
-	background-color: #5b799a;
-	color: white;
 }
