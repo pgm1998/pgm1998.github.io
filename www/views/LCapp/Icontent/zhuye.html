@@ -1,0 +1,75 @@
+<ion-view>
+	<ion-header-bar align-title="left" class="bar-positive">
+		  <div class="bar bar-header item-input-inset" id="head-search">
+		      <label class="item-input-wrapper">
+		        <input type="search" placeholder="搜索">
+		      </label>
+		      <button class="icon ion-ios-search button "></button>
+	    	</div>
+		</ion-header-bar>
+		<!--主页内容-->
+		<ion-content>
+			<!--图片区域-->
+			<section class="head-pic" ng-repeat="pi in picture">
+				<section class="pic">
+					<a href="#">
+						<img src={{pi.pic}}/>
+					</a>
+				</section>
+				<section class="pic-db">
+					<section class="pic-db-one">
+						<a href="#">
+							<img src={{pi.picOne}}/>
+						</a>
+					</section>
+					<section class="pic-db-two">
+						<a href="#">
+							<img src={{pi.picTwo}}/>
+						</a>
+					</section>
+					<!--清除浮动-->
+					<section class="clear"></section>
+				</section>
+			</section>
+			<!--专卖区-->
+			<section class="hot-sale">
+				<h1>—热卖专区—</h1>
+				<table class="content has-header">
+					<tr class="row" id="row-margin" ng-repeat="h in hot">
+						<td class="col col-30" ng-repeat="o in h" id="hot-sale-size">
+							<a href="#">
+								<section class="hot-sale-one">
+									<span><img src={{o.discount}}/></span>
+									<img src={{o.hotPic}}/>
+									<section class="hot-dp">
+										<p class="detail">{{o.detail}}</p>
+										<p class="price">{{o.price}}</p>
+									</section>
+								</section>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<!--分类-->
+			<section id="type">
+				<table class="content has-header">
+					<tr class="row" ng-repeat="t in type">
+						<td class="col col-30 type-size" ng-repeat="tp in t">
+							<a href="#"><img src={{tp.typePic}}/></a>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<!--底部-->
+			<footer>
+				<p id="tel-pic">
+					<a href="#">
+						<img src="image/shouye/footer-1.png"/>
+					</a>
+				</p>
+				<section id="tel"><a href="#">400 - 897 - 6336</a></section>
+				<p id="work">工作时间 : 9:00--18:00</p>
+			</footer>
+		</ion-content>
+</ion-view>

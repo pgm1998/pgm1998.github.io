@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<link rel="stylesheet" href="libs/ionic.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/css/ionicons.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body ng-app="liangCang">
+		<!--头部搜索框-->
+    	
+    	<ion-side-menus>
+			<ion-nav-view></ion-nav-view>
+		</ion-side-menus>
+		
+	</body>
+	<script src="libs/angular.js"></script>
+	<script src="libs/angular-ui-router.js"></script>
+	<script src="libs/ionic.js"></script>
+	<script src="libs/ionic.bundle.js"></script>
+	
+	<script>
+		angular.module("liangCang",["ionic"])
+		.config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+			$stateProvider.state("indexL",{
+				url:"/indexL",
+				abstract:true,
+				templateUrl:"views/LCapp/indexL.html"
+			})
+			.state("indexL.zhuye",{
+				url:"/zhuye",
+				views:{
+					zhuye:{
+						templateUrl:"views/LCapp/Icontent/zhuye.html",
+						controller:"zyContentCtrl"
+					}
+				}
+			})
+			
+			
+			$urlRouterProvider.otherwise("/indexL/zhuye")
+		}])
+	</script>
+	<script src="views/LCapp/Icontent/zhuye.js"></script>
+</html>
